@@ -70,7 +70,7 @@ export const attendeesClient = {
 
 export const attendeeClientPublic = {
     findByShortId: async (eventId: IdParam, attendeeShortId: string) => {
-        const response = await publicApi.get<GenericDataResponse<Partial<Attendee>>>(`events/${eventId}/attendees/${attendeeShortId}`);
+        const response = await publicApi.get<GenericPaginatedResponse<Partial<Attendee>>>(`events/${eventId}/attendees/${attendeeShortId}`);
         return response.data;
     },
 }

@@ -33,12 +33,13 @@ export const AttendeeProductAndInformation = () => {
     return (
         <Container>
             <h2>{t`Your product for`} {event.title}</h2>
-
-            <AttendeeTicket
-                attendee={attendee as Attendee}
-                product={attendee.product as Product}
-                event={event}
-            />
+            {attendee.map((attendee) => (
+                <AttendeeTicket
+                    attendee={attendee as Attendee}
+                    product={attendee.product as Product}
+                    event={event}
+                />
+            ))}
 
             {(event?.settings?.is_online_event && <OnlineEventDetails eventSettings={event.settings}/>)}
 

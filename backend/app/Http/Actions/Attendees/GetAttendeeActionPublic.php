@@ -26,6 +26,8 @@ class GetAttendeeActionPublic extends BaseAction
      */
     public function __invoke(int $eventId, string $attendeeShortId): JsonResponse|Response
     {
+        $attendee = $this->attendeeRepository->findAllAttendeeByEventIdAndEmail($eventId, $attendeeShortId);
+
         $attendee = $this->attendeeRepository
             ->loadRelation(new Relationship(
                 domainObject: ProductDomainObject::class,
@@ -34,9 +36,7 @@ class GetAttendeeActionPublic extends BaseAction
                         domainObject: ProductPriceDomainObject::class,
                     ),
                 ], name: 'product'))
-            ->findFirstWhere([
-                AttendeeDomainObjectAbstract::SHORT_ID => $attendeeShortId
-            ]);
+            ->findWhereIn(AttendeeDomainObjectAbstract::EMAIL, [$attendee->getAttribute('email')], [AttendeeDomainObjectAbstract::EVENT_ID => $eventId]);
 
         if (!$attendee) {
             return $this->notFoundResponse();

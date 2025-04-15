@@ -45,6 +45,19 @@ class AttendeeRepository extends BaseRepository implements AttendeeRepositoryInt
         return $this->handleResults($model);
     }
 
+    public function findAllAttendeeByEventIdAndEmail(int $eventId, string $attendeeShortId): Attendee
+    {
+        $this->applyConditions([
+            'attendees.event_id' => $eventId,
+            'attendees.short_id' => $attendeeShortId,
+        ]);
+
+        $this->model->select('*');
+        $model = $this->model->limit(1)->get();
+        $this->resetModel();
+
+        return $model->first();
+    }
 
     public function findByEventId(int $eventId, QueryParamsDTO $params): LengthAwarePaginator
     {
