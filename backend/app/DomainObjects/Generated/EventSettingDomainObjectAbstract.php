@@ -18,6 +18,7 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
     final public const CONTINUE_BUTTON_TEXT = 'continue_button_text';
     final public const EMAIL_FOOTER_MESSAGE = 'email_footer_message';
     final public const SUPPORT_EMAIL = 'support_email';
+    final public const SUPPORT_NAME = 'support_name';
     final public const CREATED_AT = 'created_at';
     final public const UPDATED_AT = 'updated_at';
     final public const DELETED_AT = 'deleted_at';
@@ -67,6 +68,7 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
     protected ?string $continue_button_text = null;
     protected ?string $email_footer_message = null;
     protected ?string $support_email = null;
+    protected ?string $support_name = null;
     protected string $created_at;
     protected string $updated_at;
     protected ?string $deleted_at = null;
@@ -119,6 +121,7 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
                     'continue_button_text' => $this->continue_button_text ?? null,
                     'email_footer_message' => $this->email_footer_message ?? null,
                     'support_email' => $this->support_email ?? null,
+                    'support_name' => $this->support_name ?? null,
                     'created_at' => $this->created_at ?? null,
                     'updated_at' => $this->updated_at ?? null,
                     'deleted_at' => $this->deleted_at ?? null,
@@ -248,6 +251,17 @@ abstract class EventSettingDomainObjectAbstract extends \HiEvents\DomainObjects\
     public function getSupportEmail(): ?string
     {
         return $this->support_email;
+    }
+
+    public function setSupportName(?string $support_name): self
+    {
+        $this->support_name = $support_name;
+        return $this;
+    }
+
+    public function getSupportName(): ?string
+    {
+        return $this->support_name;
     }
 
     public function setCreatedAt(string $created_at): self

@@ -50,6 +50,7 @@ readonly class PartialUpdateEventSettingsHandler
                     : $existingSettings->getPreCheckoutMessage(),
                 'email_footer_message' => $eventSettingsDTO->settings['email_footer_message'] ?? $existingSettings->getEmailFooterMessage(),
                 'support_email' => $eventSettingsDTO->settings['support_email'] ?? $existingSettings->getSupportEmail(),
+                'support_name' => $eventSettingsDTO->settings['support_name'] ?? $existingSettings->getSupportName(),
                 'require_attendee_details' => $eventSettingsDTO->settings['require_attendee_details'] ?? $existingSettings->getRequireAttendeeDetails(),
                 'continue_button_text' => array_key_exists('continue_button_text', $eventSettingsDTO->settings)
                     ? $eventSettingsDTO->settings['continue_button_text']

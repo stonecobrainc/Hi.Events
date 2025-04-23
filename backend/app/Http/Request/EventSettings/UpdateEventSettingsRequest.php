@@ -21,6 +21,7 @@ class UpdateEventSettingsRequest extends BaseRequest
 
             'continue_button_text' => ['string', 'nullable', 'max:100'],
             'support_email' => ['email', 'nullable'],
+            'support_name' => ['string', 'nullable', 'max:255'],
             'require_attendee_details' => ['boolean'],
             'order_timeout_in_minutes' => ['numeric', "min:1", "max:120"],
 

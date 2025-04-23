@@ -19,6 +19,7 @@ export const EmailSettings = () => {
     const form = useForm({
         initialValues: {
             support_email: '',
+            support_name: '',
             email_footer_message: '',
             notify_organizer_of_new_orders: true,
         }
@@ -29,6 +30,7 @@ export const EmailSettings = () => {
         if (eventSettingsQuery?.isFetched && eventSettingsQuery?.data) {
             form.setValues({
                 support_email: eventSettingsQuery.data.support_email,
+                support_name: eventSettingsQuery.data.support_name,
                 email_footer_message: eventSettingsQuery.data.email_footer_message,
             });
         }
@@ -56,7 +58,13 @@ export const EmailSettings = () => {
             />
             <form onSubmit={form.onSubmit(handleSubmit)}>
                 <fieldset disabled={eventSettingsQuery.isLoading || updateMutation.isPending}>
-                    <TextInput
+                <TextInput
+                        {...form.getInputProps('support_name')}
+                        description={t`This will be used as the "organizer" name for all emails sent from this event`}
+                        label={t`Support Name`}
+                    />
+
+                <TextInput
                         {...form.getInputProps('support_email')}
                         description={t`Any queries from product holders will be sent to this email address. This will also be used as the "reply-to" address for all emails sent from this event`}
                         label={t`Support Email`}

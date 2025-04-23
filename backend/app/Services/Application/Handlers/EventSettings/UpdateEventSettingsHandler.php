@@ -34,6 +34,7 @@ readonly class UpdateEventSettingsHandler
                     'email_footer_message' => $settings->email_footer_message
                         ?? $this->purifier->purify($settings->email_footer_message),
                     'support_email' => $settings->support_email,
+                    'support_name' => $settings->support_name,
                     'require_attendee_details' => $settings->require_attendee_details,
                     'continue_button_text' => trim($settings->continue_button_text),
 

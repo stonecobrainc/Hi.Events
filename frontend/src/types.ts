@@ -114,6 +114,7 @@ export interface EventSettings {
     product_page_message: string;
     post_checkout_message: string;
     support_email?: string;
+    support_name?: string;
     order_timeout_in_minutes?: number;
     homepage_background_color: string;
     homepage_primary_color: string;

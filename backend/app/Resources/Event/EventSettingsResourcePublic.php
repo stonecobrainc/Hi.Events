@@ -36,6 +36,7 @@ class EventSettingsResourcePublic extends JsonResource
             'required_attendee_details' => $this->getRequireAttendeeDetails(),
             'email_footer_message' => $this->getEmailFooterMessage(),
             'support_email' => $this->getSupportEmail(),
+            'support_name' => $this->getSupportName(),
             'order_timeout_in_minutes' => $this->getOrderTimeoutInMinutes(),
 
             // Homepage settings

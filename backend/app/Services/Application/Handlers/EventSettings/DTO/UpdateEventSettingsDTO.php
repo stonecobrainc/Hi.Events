@@ -21,6 +21,7 @@ class UpdateEventSettingsDTO extends BaseDTO
         public readonly ?string                 $email_footer_message,
         public readonly ?string                 $continue_button_text,
         public readonly ?string                 $support_email,
+        public readonly ?string                 $support_name,
 
         public readonly ?string                 $homepage_background_color,
         public readonly ?string                 $homepage_primary_color,
